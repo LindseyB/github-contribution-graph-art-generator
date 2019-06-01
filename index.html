@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>GitHub Contribution Graph Art Generator</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="/style.css">
+    <link href="prism.css" rel="stylesheet" />
+    
+    <!-- import the webpage's javascript file -->
+    <script src="/script.js" defer></script>
+    <script src="prism.js" defer></script>
+  </head>  
+  <body>
+    <h1>
+      GitHub Contribution Graph Art Generator
+    </h1>
+    <div class="pen" data-color="#ebedf0"></div>
+    <div class="pen" data-color="#c6e48b"></div>
+    <div class="pen" data-color="#7bc96f"></div>
+    <div class="pen" data-color="#239a3b"></div>
+    <div class="pen" data-color="#196127"></div>
+    
+    <div id="graph">
+    </div>
+    
+    <form id="generation_form">
+      <label for="githublogin">GitHub Login:</label> <input type="text" name="githublogin" value="LindseyB" id="github_login" required><br>
+      <label for="maxcommitvalue">Max Commit Value:</label> <input type="number" name="maxcommitvalue" value="40" id="max_commits" min="4" required><br>
+      <label for="reponame">GitHub Repo Name:</label> <input type="text" name="reponame" value="dummy" id="repo_name" required><br>
+      <button type="submit">
+        Generate Script
+      </button>
+    </form>
+    
+    <p>
+      To get your max commit value open your GitHub profile and run the following in your browser's console (sorry, I only tested it in Chrome):
+      
+      <pre><code class="language-javascript">var data = document.querySelectorAll("[data-count]");
+var values = Array.from(data).map(function (x) {
+  return parseInt(x.dataset.count, 10);
+});
+Math.max(...values);</code></pre>
+      The number in the final result is your <b>Max Commit Value</b>.
+    </p>
+      
+    
+    <!-- include the Glitch button to show what the webpage is about and
+          to make it easier for folks to view source and remix -->
+    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
+    <script src="https://button.glitch.me/button.js"></script>
+  </body>
+</html>
